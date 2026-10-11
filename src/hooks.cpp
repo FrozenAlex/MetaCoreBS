@@ -135,7 +135,7 @@ MAKE_AUTO_HOOK_MATCH(
     void,
     BeatmapObjectManager* self,
     NoteController* noteController,
-    by_ref<NoteCutInfo> info
+    by_ref<const NoteCutInfo> info
 ) {
     BeatmapObjectManager_HandleNoteControllerNoteWasCut(self, noteController, info);
 
@@ -151,7 +151,9 @@ MAKE_AUTO_HOOK_MATCH(
             Internals::remainingNotesRight--;
     }
 
-    if (info->allIsOK) {
+    // Generated value-type getters are non-const, so use a defensive copy.
+    auto cutInfo = *info;
+    if (cutInfo.allIsOK) {
         if (++Internals::combo > Internals::highestCombo)
             Internals::highestCombo = Internals::combo;
         if (left) {
@@ -255,7 +257,7 @@ MAKE_AUTO_HOOK_MATCH(
     HandleCutFinish(self);
 }
 
-MAKE_AUTO_HOOK_MATCH(CutScoreBuffer_Init, &CutScoreBuffer::Init, bool, CutScoreBuffer* self, by_ref<NoteCutInfo> noteCutInfo) {
+MAKE_AUTO_HOOK_MATCH(CutScoreBuffer_Init, &CutScoreBuffer::Init, bool, CutScoreBuffer* self, by_ref<const NoteCutInfo> noteCutInfo) {
     bool notYetFinished = CutScoreBuffer_Init(self, noteCutInfo);
     if (!notYetFinished)
         HandleCutFinish(self);
@@ -485,7 +487,7 @@ MAKE_AUTO_HOOK_MATCH(
     LevelCompletionResultsHelper_ProcessScore,
     &LevelCompletionResultsHelper::ProcessScore,
     void,
-    by_ref<BeatmapKey> beatmapKey,
+    by_ref<const BeatmapKey> beatmapKey,
     PlayerData* playerData,
     PlayerLevelStatsData* playerLevelStats,
     LevelCompletionResults* levelCompletionResults,

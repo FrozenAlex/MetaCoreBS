@@ -7,7 +7,7 @@
     "info": {
       "name": "MetaCoreBS",
       "id": "metacore-bs",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "url": "https://github.com/Metalit/MetaCoreBS",
       "additionalData": {
         "overrideSoName": "libmetacore-bs.so",
@@ -72,36 +72,38 @@
       },
       {
         "id": "beatsaber-hook",
-        "versionRange": "^8.0.0",
+        "versionRange": "^9.1.0",
         "additionalData": {}
       },
       {
         "id": "bs-cordl",
-        "versionRange": "^4500.0.0",
+        "versionRange": "^4502.2.0",
         "additionalData": {}
       },
       {
         "id": "custom-types",
-        "versionRange": "^0.20.0",
+        "versionRange": "^0.21.1",
         "additionalData": {
           "private": true
         }
       },
       {
         "id": "metacore",
-        "versionRange": "^2.0.2",
-        "additionalData": {}
+        "versionRange": "^2.0.4",
+        "additionalData": {
+          "includeQmod": false
+        }
       },
       {
         "id": "song-details",
-        "versionRange": "^1.0.4",
+        "versionRange": "^1.0.5",
         "additionalData": {
           "private": true
         }
       },
       {
         "id": "web-utils",
-        "versionRange": "^0.6.8",
+        "versionRange": "^0.6.9",
         "additionalData": {
           "private": true
         }
@@ -116,30 +118,14 @@
   "restoredDependencies": [
     {
       "dependency": {
-        "id": "libil2cpp",
-        "versionRange": "=0.5.0",
-        "additionalData": {
-          "headersOnly": true,
-          "compileOptions": {
-            "systemIncludes": [
-              "il2cpp/external/baselib/Include",
-              "il2cpp/external/baselib/Platforms/Android/Include"
-            ]
-          }
-        }
-      },
-      "version": "0.5.0"
-    },
-    {
-      "dependency": {
         "id": "custom-types",
-        "versionRange": "=0.20.1",
+        "versionRange": "=0.21.1",
         "additionalData": {
-          "soLink": "https://github.com/QuestPackageManager/Il2CppQuestTypePatching/releases/download/v0.20.1/libcustom-types.so",
-          "debugSoLink": "https://github.com/QuestPackageManager/Il2CppQuestTypePatching/releases/download/v0.20.1/debug_libcustom-types.so",
+          "soLink": "https://github.com/QuestPackageManager/Il2CppQuestTypePatching/releases/download/v0.21.1/libcustom-types.so",
+          "debugSoLink": "https://github.com/QuestPackageManager/Il2CppQuestTypePatching/releases/download/v0.21.1/debug_libcustom-types.so",
           "overrideSoName": "libcustom-types.so",
-          "modLink": "https://github.com/QuestPackageManager/Il2CppQuestTypePatching/releases/download/v0.20.1/CustomTypes.qmod",
-          "branchName": "version/v0_20_1",
+          "modLink": "https://github.com/QuestPackageManager/Il2CppQuestTypePatching/releases/download/v0.21.1/CustomTypes.qmod",
+          "branchName": "version/v0_21_1",
           "compileOptions": {
             "cppFlags": [
               "-Wno-invalid-offsetof"
@@ -148,7 +134,22 @@
           "cmake": true
         }
       },
-      "version": "0.20.1"
+      "version": "0.21.1"
+    },
+    {
+      "dependency": {
+        "id": "song-details",
+        "versionRange": "=1.0.5",
+        "additionalData": {
+          "soLink": "https://github.com/bsq-ports/SongDetails/releases/download/v1.0.5/libsongdetails.so",
+          "debugSoLink": "https://github.com/bsq-ports/SongDetails/releases/download/v1.0.5/debug_libsongdetails.so",
+          "overrideSoName": "libsongdetails.so",
+          "modLink": "https://github.com/bsq-ports/SongDetails/releases/download/v1.0.5/SongDetails.qmod",
+          "branchName": "version/v1_0_5",
+          "cmake": false
+        }
+      },
+      "version": "1.0.5"
     },
     {
       "dependency": {
@@ -172,10 +173,10 @@
     {
       "dependency": {
         "id": "bs-cordl",
-        "versionRange": "=4500.0.0",
+        "versionRange": "=4502.2.0",
         "additionalData": {
           "headersOnly": true,
-          "branchName": "version/v4500_0_0",
+          "branchName": "version/v4502_2_0",
           "compileOptions": {
             "includePaths": [
               "include"
@@ -184,42 +185,41 @@
             "cppFlags": [
               "-fdeclspec",
               "-DUNITY_6",
+              "-DUNITY_6_3",
               "-DHAS_CODEGEN",
               "-Wno-invalid-offsetof"
             ]
           }
         }
       },
-      "version": "4500.0.0"
-    },
-    {
-      "dependency": {
-        "id": "song-details",
-        "versionRange": "=1.0.5",
-        "additionalData": {
-          "soLink": "https://github.com/bsq-ports/SongDetails/releases/download/v1.0.5/libsongdetails.so",
-          "debugSoLink": "https://github.com/bsq-ports/SongDetails/releases/download/v1.0.5/debug_libsongdetails.so",
-          "overrideSoName": "libsongdetails.so",
-          "modLink": "https://github.com/bsq-ports/SongDetails/releases/download/v1.0.5/SongDetails.qmod",
-          "branchName": "version/v1_0_5",
-          "cmake": false
-        }
-      },
-      "version": "1.0.5"
+      "version": "4502.2.0"
     },
     {
       "dependency": {
         "id": "metacore",
-        "versionRange": "=2.0.3",
+        "versionRange": "=2.0.4",
         "additionalData": {
-          "soLink": "https://github.com/Metalit/MetaCore/releases/download/v2.0.3/libmetacore.so",
           "overrideSoName": "libmetacore.so",
-          "modLink": "https://github.com/Metalit/MetaCore/releases/download/v2.0.3/MetaCore.qmod",
-          "branchName": "version/v2_0_3",
           "cmake": true
         }
       },
-      "version": "2.0.3"
+      "version": "2.0.4"
+    },
+    {
+      "dependency": {
+        "id": "libil2cpp",
+        "versionRange": "=0.5.0",
+        "additionalData": {
+          "headersOnly": true,
+          "compileOptions": {
+            "systemIncludes": [
+              "il2cpp/external/baselib/Include",
+              "il2cpp/external/baselib/Platforms/Android/Include"
+            ]
+          }
+        }
+      },
+      "version": "0.5.0"
     },
     {
       "dependency": {
@@ -257,13 +257,13 @@
     {
       "dependency": {
         "id": "beatsaber-hook",
-        "versionRange": "=8.2.1",
+        "versionRange": "=9.1.0",
         "additionalData": {
-          "soLink": "https://github.com/QuestPackageManager/beatsaber-hook/releases/download/v8.2.1/libbeatsaber-hook.so",
-          "debugSoLink": "https://github.com/QuestPackageManager/beatsaber-hook/releases/download/v8.2.1/debug_libbeatsaber-hook.so",
+          "soLink": "https://github.com/QuestPackageManager/beatsaber-hook/releases/download/v9.1.0/libbeatsaber-hook.so",
+          "debugSoLink": "https://github.com/QuestPackageManager/beatsaber-hook/releases/download/v9.1.0/debug_libbeatsaber-hook.so",
           "overrideSoName": "libbeatsaber-hook.so",
-          "modLink": "https://github.com/QuestPackageManager/beatsaber-hook/releases/download/v8.2.1/beatsaber-hook.qmod",
-          "branchName": "version/v8_2_1",
+          "modLink": "https://github.com/QuestPackageManager/beatsaber-hook/releases/download/v9.1.0/beatsaber-hook.qmod",
+          "branchName": "version/v9_1_0",
           "compileOptions": {
             "cppFlags": [
               "-Wno-extra-qualification"
@@ -272,7 +272,7 @@
           "cmake": true
         }
       },
-      "version": "8.2.1"
+      "version": "9.1.0"
     },
     {
       "dependency": {
@@ -321,7 +321,9 @@
         "id": "mod-scripts",
         "versionRange": "=1.0.2",
         "additionalData": {
-          "headersOnly": true
+          "headersOnly": true,
+          "branchName": "version/v1_0_2",
+          "cmake": false
         }
       },
       "version": "1.0.2"
