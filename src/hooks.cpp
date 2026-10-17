@@ -151,9 +151,7 @@ MAKE_AUTO_HOOK_MATCH(
             Internals::remainingNotesRight--;
     }
 
-    // Generated value-type getters are non-const, so use a defensive copy.
-    auto cutInfo = *info;
-    if (cutInfo.allIsOK) {
+    if (info.as_mutable()->allIsOK) {
         if (++Internals::combo > Internals::highestCombo)
             Internals::highestCombo = Internals::combo;
         if (left) {
