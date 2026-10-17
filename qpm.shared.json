@@ -72,12 +72,12 @@
       },
       {
         "id": "beatsaber-hook",
-        "versionRange": "^9.1.0",
+        "versionRange": "^9.2.0",
         "additionalData": {}
       },
       {
         "id": "bs-cordl",
-        "versionRange": "^4502.2.0",
+        "versionRange": "^4503.0.0",
         "additionalData": {}
       },
       {
@@ -89,7 +89,7 @@
       },
       {
         "id": "metacore",
-        "versionRange": "^2.0.4",
+        "versionRange": "^2.0.5",
         "additionalData": {
           "includeQmod": false
         }
@@ -173,10 +173,10 @@
     {
       "dependency": {
         "id": "bs-cordl",
-        "versionRange": "=4502.2.0",
+        "versionRange": "=4503.0.0",
         "additionalData": {
           "headersOnly": true,
-          "branchName": "version/v4502_2_0",
+          "branchName": "version/v4503_0_0",
           "compileOptions": {
             "includePaths": [
               "include"
@@ -192,18 +192,18 @@
           }
         }
       },
-      "version": "4502.2.0"
+      "version": "4503.0.0"
     },
     {
       "dependency": {
         "id": "metacore",
-        "versionRange": "=2.0.4",
+        "versionRange": "=2.0.5",
         "additionalData": {
           "overrideSoName": "libmetacore.so",
           "cmake": true
         }
       },
-      "version": "2.0.4"
+      "version": "2.0.5"
     },
     {
       "dependency": {
@@ -257,13 +257,13 @@
     {
       "dependency": {
         "id": "beatsaber-hook",
-        "versionRange": "=9.1.0",
+        "versionRange": "=9.2.0",
         "additionalData": {
-          "soLink": "https://github.com/QuestPackageManager/beatsaber-hook/releases/download/v9.1.0/libbeatsaber-hook.so",
-          "debugSoLink": "https://github.com/QuestPackageManager/beatsaber-hook/releases/download/v9.1.0/debug_libbeatsaber-hook.so",
+          "soLink": "https://github.com/QuestPackageManager/beatsaber-hook/releases/download/v9.2.0/libbeatsaber-hook.so",
+          "debugSoLink": "https://github.com/QuestPackageManager/beatsaber-hook/releases/download/v9.2.0/debug_libbeatsaber-hook.so",
           "overrideSoName": "libbeatsaber-hook.so",
-          "modLink": "https://github.com/QuestPackageManager/beatsaber-hook/releases/download/v9.1.0/beatsaber-hook.qmod",
-          "branchName": "version/v9_1_0",
+          "modLink": "https://github.com/QuestPackageManager/beatsaber-hook/releases/download/v9.2.0/beatsaber-hook.qmod",
+          "branchName": "version/v9_2_0",
           "compileOptions": {
             "cppFlags": [
               "-Wno-extra-qualification"
@@ -272,7 +272,7 @@
           "cmake": true
         }
       },
-      "version": "9.1.0"
+      "version": "9.2.0"
     },
     {
       "dependency": {
