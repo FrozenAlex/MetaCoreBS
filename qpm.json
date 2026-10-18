@@ -6,7 +6,7 @@
   "info": {
     "name": "MetaCoreBS",
     "id": "metacore-bs",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "url": "https://github.com/Metalit/MetaCoreBS",
     "additionalData": {
       "overrideSoName": "libmetacore-bs.so",
@@ -71,36 +71,38 @@
     },
     {
       "id": "beatsaber-hook",
-      "versionRange": "^8.0.0",
+      "versionRange": "^9.3.0",
       "additionalData": {}
     },
     {
       "id": "bs-cordl",
-      "versionRange": "^4500.0.0",
+      "versionRange": "^4503.0.0",
       "additionalData": {}
     },
     {
       "id": "custom-types",
-      "versionRange": "^0.20.0",
+      "versionRange": "^0.21.2",
       "additionalData": {
         "private": true
       }
     },
     {
       "id": "metacore",
-      "versionRange": "^2.0.2",
-      "additionalData": {}
+      "versionRange": "^2.0.6",
+      "additionalData": {
+        "includeQmod": false
+      }
     },
     {
       "id": "song-details",
-      "versionRange": "^1.0.4",
+      "versionRange": "^1.0.5",
       "additionalData": {
         "private": true
       }
     },
     {
       "id": "web-utils",
-      "versionRange": "^0.6.8",
+      "versionRange": "^0.6.9",
       "additionalData": {
         "private": true
       }
