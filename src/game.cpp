@@ -1,16 +1,12 @@
 #include "game.hpp"
-#include "gameplay-state.hpp"
 
 #include "events.hpp"
+#include "internals.hpp"
 #include "main.hpp"
 #include "types.hpp"
 #include "metacore/shared/unity.hpp"
 
 #include "GlobalNamespace/FadeInOutController.hpp"
-#include "GlobalNamespace/LevelScenesTransitionSetupData.hpp"
-#include "GlobalNamespace/MissionLevelScenesTransitionSetupData.hpp"
-#include "GlobalNamespace/MultiplayerLevelScenesTransitionSetupData.hpp"
-#include "GlobalNamespace/StandardLevelScenesTransitionSetupData.hpp"
 #include "GlobalNamespace/LevelCollectionNavigationController.hpp"
 #include "GlobalNamespace/LevelCollectionViewController.hpp"
 #include "GlobalNamespace/LevelSelectionFlowCoordinator.hpp"
@@ -24,23 +20,8 @@
 
 using namespace GlobalNamespace;
 
-static MetaCore::Game::GameplayMode gameplayMode = MetaCore::Game::GameplayMode::None;
-
-static MetaCore::Game::GameplayMode ClassifyGameplayMode(ScenesTransitionSetupData* scene) {
-    using Mode = MetaCore::Game::GameplayMode;
-    if (!scene || !i2c::try_cast<LevelScenesTransitionSetupData*>(scene)) return Mode::None;
-    if (i2c::try_cast<MultiplayerLevelScenesTransitionSetupData*>(scene)) return Mode::Multiplayer;
-    if (i2c::try_cast<MissionLevelScenesTransitionSetupData*>(scene)) return Mode::Campaign;
-    if (i2c::try_cast<StandardLevelScenesTransitionSetupData*>(scene)) return Mode::Standard;
-    return Mode::Unknown;
-}
-
 MetaCore::Game::GameplayMode MetaCore::Game::GetGameplayMode() {
-    return gameplayMode;
-}
-
-void MetaCore::Game::detail::UpdateGameplayMode(ScenesTransitionSetupData* scene) {
-    gameplayMode = ClassifyGameplayMode(scene);
+    return Internals::gameplayMode;
 }
 
 static std::set<std::string> scoreDisablers;

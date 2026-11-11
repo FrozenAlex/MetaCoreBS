@@ -17,15 +17,15 @@
 
 namespace MetaCore::Game {
     enum class GameplayMode {
-        None,       // Outside a gameplay scene (also during scene-ended/soft-restart callbacks).
+        None,       // No gameplay scene.
         Standard,   // Solo and Party.
         Campaign,
         Multiplayer,
         Unknown,      // An unrecognized LevelScenesTransitionSetupData subclass.
     };
 
-    /// @brief Current scene mode, set before GameplaySceneStarted. Retained through
-    /// MapEnded/MapRestarted and cleared before GameplaySceneEnded or SoftRestart.
+    /// @brief Current level mode, set before GameplaySceneStarted. Retained through
+    /// MapEnded/MapRestarted and cleared before GameplaySceneEnded.
     /// Read on the main thread, like the gameplay event API.
     METACORE_EXPORT GameplayMode GetGameplayMode();
 

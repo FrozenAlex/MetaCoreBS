@@ -2,7 +2,6 @@
 
 #include "events.hpp"
 #include "game.hpp"
-#include "gameplay-state.hpp"
 #include "input.hpp"
 #include "internals.hpp"
 #include "main.hpp"
@@ -59,7 +58,7 @@ static bool inGameplayScene = false;
 static std::set<int> pressedButtons;
 
 static void CheckInitialize(ScenesTransitionSetupData* scene) {
-    Game::detail::UpdateGameplayMode(scene);
+    Internals::UpdateGameplayMode(scene);
     if (Game::GetGameplayMode() == Game::GameplayMode::None)
         return;
     logger.debug("gameplay scene start");
@@ -82,7 +81,7 @@ static void CheckSceneFinish() {
     if (!inGameplayScene)
         return;
     logger.debug("gameplay scene finish");
-    Game::detail::UpdateGameplayMode(nullptr);
+    Internals::UpdateGameplayMode(nullptr);
     inGameplayScene = false;
     Events::Broadcast(Events::GameplaySceneEnded);
 }
@@ -474,8 +473,6 @@ MAKE_AUTO_HOOK_MATCH(
     System::Action_1<Zenject::DiContainer*>* finishCallback
 ) {
     logger.info("soft restart");
-    Game::detail::UpdateGameplayMode(nullptr);
-    inGameplayScene = false;
     Events::Broadcast(Events::SoftRestart);
 
     MenuTransitionsHelper_RestartGame(self, finishCallback);
